@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fundamentos da Ciência da Computação</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .nav-link {
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-2px);
+    }
+
+    .section-card {
+      transition: all 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .member-card {
+      transition: all 0.3s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Estilos para facilitar edição no Canva */
+    .editable-text {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    .editable-title {
+      display: block;
+      font-weight: bold;
+    }
+
+    .editable-paragraph {
+      display: block;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+  <nav class="bg-white shadow-sm border-b border-gray-200">
+    <div class="max-w-6xl mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <span class="editable-text text-2xl font-bold text-blue-700">CC Fundamentos</span>
+        <div class="flex space-x-6">
+          <button onclick="showPage('home')"
+            class="nav-link px-4 py-2 text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg font-medium"
+            id="home-nav">
+            <span class="editable-text">Início</span>
+          </button>
+          <button onclick="showPage('team')"
+            class="nav-link px-4 py-2 text-gray-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg font-medium"
+            id="team-nav">
+            <span class="editable-text">Autores</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div id="home" class="page active">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="text-center mb-16">
+        <h1 class="editable-title text-5xl font-bold text-gray-900 mb-6">Fundamentos da Ciência da Computação</h1>
+        <p class="editable-paragraph text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          A Ciência da Computação é uma disciplina que abrange o estudo sistemático de algoritmos e estruturas de dados,
+          bem como o design e análise de sistemas computacionais e sua aplicação na resolução de problemas complexos.
+          Esta área interdisciplinar combina fundamentos matemáticos, princípios de engenharia e metodologias
+          científicas para desenvolver soluções tecnológicas inovadoras.
+        </p>
+      </div>
+
+      <div class="flex justify-center mb-16">
+        <div class="bg-gradient-to-br from-blue-100 to-indigo-200 p-8 rounded-2xl">
+          <svg width="400" height="300" viewBox="0 0 400 300" class="mx-auto">
+            <rect x="150" y="120" width="100" height="60" rx="8" fill="#3B82F6" stroke="#1E40AF" stroke-width="2" />
+            <text x="200" y="145" text-anchor="middle" fill="white" font-size="12" font-weight="bold">CPU</text>
+            <text x="200" y="160" text-anchor="middle" fill="white" font-size="10">Processamento</text>
+
+            <circle cx="50" cy="150" r="30" fill="#10B981" stroke="#059669" stroke-width="2" />
+            <text x="50" y="145" text-anchor="middle" fill="white" font-size="10" font-weight="bold">INPUT</text>
+            <text x="50" y="158" text-anchor="middle" fill="white" font-size="8">Dados</text>
+
+            <circle cx="350" cy="150" r="30" fill="#F59E0B" stroke="#D97706" stroke-width="2" />
+            <text x="350" y="145" text-anchor="middle" fill="white" font-size="10" font-weight="bold">OUTPUT</text>
+            <text x="350" y="158" text-anchor="middle" fill="white" font-size="8">Resultado</text>
+
+            <rect x="170" y="50" width="60" height="40" rx="6" fill="#8B5CF6" stroke="#7C3AED" stroke-width="2" />
+            <text x="200" y="68" text-anchor="middle" fill="white" font-size="10" font-weight="bold">MEMÓRIA</text>
+            <text x="200" y="80" text-anchor="middle" fill="white" font-size="8">Armazenamento</text>
+
+            <rect x="170" y="210" width="60" height="40" rx="6" fill="#EF4444" stroke="#DC2626" stroke-width="2" />
+            <text x="200" y="228" text-anchor="middle" fill="white" font-size="10" font-weight="bold">STORAGE</text>
+            <text x="200" y="240" text-anchor="middle" fill="white" font-size="8">Disco</text>
+
+            <path d="M 80 150 L 140 150" stroke="#374151" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+            <path d="M 260 150 L 320 150" stroke="#374151" stroke-width="3" fill="none" marker-end="url(#arrowhead)" />
+            <path d="M 200 120 L 200 100" stroke="#374151" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+            <path d="M 200 180 L 200 200" stroke="#374151" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#374151" />
+              </marker>
+            </defs>
+
+            <text x="30" y="30" fill="#E5E7EB" font-size="12" font-family="monospace">1010110</text>
+            <text x="300" y="40" fill="#E5E7EB" font-size="12" font-family="monospace">0110101</text>
+            <text x="50" y="280" fill="#E5E7EB" font-size="12" font-family="monospace">1100110</text>
+            <text x="320" y="270" fill="#E5E7EB" font-size="12" font-family="monospace">0101011</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 mb-16">
+        <div class="section-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2">
+              <path d="M9 12l2 2 4-4" />
+              <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3" />
+              <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3" />
+              <path d="M3 12c0 5.5 4.5 10 10 10s10-4.5 10-10" />
+            </svg>
+          </div>
+          <h3 class="editable-title text-2xl font-bold text-gray-900 mb-4">Teoria da Computação</h3>
+          <p class="editable-paragraph text-gray-600 leading-relaxed mb-4">
+            Estuda os fundamentos matemáticos da computação, incluindo algoritmos, complexidade computacional, teoria
+            dos autômatos e linguagens formais. Define os limites teóricos do que pode ser computado.
+          </p>
+          <div class="text-sm text-gray-500 space-y-2">
+            <div class="editable-text">• Análise de algoritmos</div>
+            <div class="editable-text">• Teoria da complexidade</div>
+            <div class="editable-text">• Máquinas de Turing</div>
+            <div class="editable-text">• Linguagens formais</div>
+          </div>
+        </div>
+
+        <div class="section-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+          <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <h3 class="editable-title text-2xl font-bold text-gray-900 mb-4">Sistemas de Computação</h3>
+          <p class="editable-paragraph text-gray-600 leading-relaxed mb-4">
+            Abrange a arquitetura de computadores, sistemas operacionais, redes e infraestrutura computacional. Foca na
+            implementação prática e eficiente de soluções computacionais.
+          </p>
+          <div class="text-sm text-gray-500 space-y-2">
+            <div class="editable-text">• Arquitetura de computadores</div>
+            <div class="editable-text">• Sistemas operacionais</div>
+            <div class="editable-text">• Redes de computadores</div>
+            <div class="editable-text">• Sistemas distribuídos</div>
+          </div>
+        </div>
+
+        <div class="section-card bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+          <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2">
+              <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </div>
+          <h3 class="editable-title text-2xl font-bold text-gray-900 mb-4">Aplicações</h3>
+          <p class="editable-paragraph text-gray-600 leading-relaxed mb-4">
+            Desenvolvimento de software, inteligência artificial, ciência de dados e soluções tecnológicas para
+            problemas do mundo real. Conecta teoria e prática através de implementações concretas.
+          </p>
+          <div class="text-sm text-gray-500 space-y-2">
+            <div class="editable-text">• Desenvolvimento de software</div>
+            <div class="editable-text">• Inteligência artificial</div>
+            <div class="editable-text">• Ciência de dados</div>
+            <div class="editable-text">• Interface humano-computador</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+        <h3 class="editable-title text-2xl font-bold text-gray-900 mb-6 flex items-center">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" class="mr-3">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          <span class="editable-text">Glossário de Termos Importantes</span>
+        </h3>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="space-y-4">
+            <div>
+              <h4 class="editable-title font-semibold text-blue-700 mb-1">Algoritmo</h4>
+              <p class="editable-paragraph text-gray-600 text-sm">Sequência finita de instruções bem definidas para
+                resolver um problema específico.</p>
+            </div>
+            <div>
+              <h4 class="editable-title font-semibold text-blue-700 mb-1">Estrutura de Dados</h4>
+              <p class="editable-paragraph text-gray-600 text-sm">Forma de organizar e armazenar dados para facilitar
+                acesso e modificação eficientes.</p>
+            </div>
+            <div>
+              <h4 class="editable-title font-semibold text-blue-700 mb-1">Complexidade Computacional</h4>
+              <p class="editable-paragraph text-gray-600 text-sm">Medida dos recursos necessários (tempo, espaço) para
+                executar um algoritmo.</p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div>
+              <h4 class="editable-title font-semibold text-blue-700 mb-1">Paradigma de Programação</h4>
+              <p class="editable-paragraph text-gray-600 text-sm">Estilo fundamental de programação que define como
+                estruturar e organizar código.</p>
+            </div>
+            <div>
+              <h4 class="editable-title font-semibold text-blue-700 mb-1">Compilador</h4>
+              <p class="editable-paragraph text-gray-600 text-sm">Programa que traduz código fonte em linguagem de alto
+                nível para código de máquina.</p>
+            </div>
+            <div>
+              <h4 class="editable-title font-semibold text-blue-700 mb-1">Abstração</h4>
+              <p class="editable-paragraph text-gray-600 text-sm">Processo de ocultar detalhes de implementação
+                complexos, expondo apenas funcionalidades essenciais.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="team" class="page">
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="text-center mb-16">
+        <h1 class="editable-title text-5xl font-bold text-gray-900 mb-6">Autores do Projeto</h1>
+        <p class="editable-paragraph text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          Conheça a equipe responsável pelo desenvolvimento deste material educacional sobre Fundamentos da Ciência da
+          Computação.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="member-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+          <img src="images/kauan.jpg" alt="Foto de Kauan Oliveira"
+            class="w-24 h-24 rounded-full object-cover mx-auto mb-6">
+          <h3 class="editable-title text-xl font-bold text-gray-900 mb-2">Kauan Oliveira</h3>
+          <p class="editable-text text-blue-600 font-medium mb-4">kauand.andrade17@gmail.com</p>
+          <p class="editable-text text-gray-500 text-sm mb-4">Matrícula: 325123417</p>
+          <div class="border-t border-gray-100 pt-4">
+            <h4 class="editable-title font-semibold text-gray-700 mb-2">Principais Contribuições:</h4>
+            <div class="text-sm text-gray-600 space-y-1">
+              <div class="editable-text">• Design e desenvolvimento web</div>
+              <div class="editable-text">• Criação das ilustrações conceituais</div>
+              <div class="editable-text">• Implementação da interface</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+          <img src="images/geovane.jpg" alt="Foto de Geovane" class="w-24 h-24 rounded-full object-cover mx-auto mb-6">
+          <h3 class="editable-title text-xl font-bold text-gray-900 mb-2">Geovane</h3>
+          <p class="editable-text text-blue-600 font-medium mb-4">gs767928@gmail.com</p>
+          <p class="editable-text text-gray-500 text-sm mb-4">Matrícula: 1231231231</p>
+          <div class="border-t border-gray-100 pt-4">
+            <h4 class="editable-title font-semibold text-gray-700 mb-2">Principais Contribuições:</h4>
+            <div class="text-sm text-gray-600 space-y-1">
+              <div class="editable-text">• Design e desenvolvimento web</div>
+              <div class="editable-text">• Criação das ilustrações conceituais</div>
+              <div class="editable-text">• Implementação da interface</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+          <img src="images/marcos.jpg" alt="Foto de Marcos" class="w-24 h-24 rounded-full object-cover mx-auto mb-6">
+          <h3 class="editable-title text-xl font-bold text-gray-900 mb-2">Marcos</h3>
+          <p class="editable-text text-blue-600 font-medium mb-4">marcosdoth15@gmail.com</p>
+          <p class="editable-text text-gray-500 text-sm mb-4">Matrícula: 1231231231</p>
+          <div class="border-t border-gray-100 pt-4">
+            <h4 class="editable-title font-semibold text-gray-700 mb-2">Principais Contribuições:</h4>
+            <div class="text-sm text-gray-600 space-y-1">
+              <div class="editable-text">• Design e desenvolvimento web</div>
+              <div class="editable-text">• Criação das ilustrações conceituais</div>
+              <div class="editable-text">• Implementação da interface</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+          <img src="images/erik.jpg" alt="Foto de Erik" class="w-24 h-24 rounded-full object-cover mx-auto mb-6">
+          <h3 class="editable-title text-xl font-bold text-gray-900 mb-2">Erik</h3>
+          <p class="editable-text text-blue-600 font-medium mb-4">erick.souza.araujo.48@gmail.com</p>
+          <p class="editable-text text-gray-500 text-sm mb-4">Matrícula: 1231231231</p>
+          <div class="border-t border-gray-100 pt-4">
+            <h4 class="editable-title font-semibold text-gray-700 mb-2">Principais Contribuições:</h4>
+            <div class="text-sm text-gray-600 space-y-1">
+              <div class="editable-text">• Design e desenvolvimento web</div>
+              <div class="editable-text">• Criação das ilustrações conceituais</div>
+              <div class="editable-text">• Implementação da interface</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+          <img src="images/jayanne.jpg" alt="Foto de Jayanne" class="w-24 h-24 rounded-full object-cover mx-auto mb-6">
+          <h3 class="editable-title text-xl font-bold text-gray-900 mb-2">Jayanne</h3>
+          <p class="editable-text text-blue-600 font-medium mb-4">email</p>
+          <p class="editable-text text-gray-500 text-sm mb-4">Matrícula: 2021001238</p>
+          <div class="border-t border-gray-100 pt-4">
+            <h4 class="editable-title font-semibold text-gray-700 mb-2">Principais Contribuições:</h4>
+            <div class="text-sm text-gray-600 space-y-1">
+              <div class="editable-text">• Design e desenvolvimento web</div>
+              <div class="editable-text">• Criação das ilustrações conceituais</div>
+              <div class="editable-text">• Implementação da interface</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="member-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center">
+          <img src="images/michele.jpg" alt="Foto de Michele" class="w-24 h-24 rounded-full object-cover mx-auto mb-6">
+          <h3 class="editable-title text-xl font-bold text-gray-900 mb-2">Michele</h3>
+          <p class="editable-text text-blue-600 font-medium mb-4">email</p>
+          <p class="editable-text text-gray-500 text-sm mb-4">Matrícula: 1231231231</p>
+          <div class="border-t border-gray-100 pt-4">
+            <h4 class="editable-title font-semibold text-gray-700 mb-2">Principais Contribuições:</h4>
+            <div class="text-sm text-gray-600 space-y-1">
+              <div class="editable-text">• Design e desenvolvimento web</div>
+              <div class="editable-text">• Criação das ilustrações conceituais</div>
+              <div class="editable-text">• Implementação da interface</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl border border-blue-100">
+        <div class="text-center">
+          <h3 class="editable-title text-2xl font-bold text-gray-900 mb-4">Sobre o Projeto</h3>
+          <p class="editable-paragraph text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            Este projeto foi desenvolvido como parte da disciplina de Fundamentos da Ciência da Computação, com o
+            objetivo de criar um material educacional acessível e bem estruturado sobre os pilares fundamentais da área.
+            A equipe trabalhou de forma colaborativa, combinando pesquisa teórica, design visual e implementação técnica
+            para entregar uma experiência educacional de qualidade.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPage(pageId) {
+      // Hide all pages
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+
+      // Update navigation
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.classList.remove('text-blue-700', 'bg-blue-50');
+        link.classList.add('text-gray-600');
+      });
+
+      document.getElementById(pageId + '-nav').classList.remove('text-gray-600');
+      document.getElementById(pageId + '-nav').classList.add('text-blue-700', 'bg-blue-50');
+    }
+
+    // Initialize with home page active
+    document.addEventListener('DOMContentLoaded', function () {
+      showPage('home');
+    });
+  </script>
+</body>
+
+</html>
