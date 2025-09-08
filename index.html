@@ -7,8 +7,6 @@
   <title>Fundamentos da Ciência da Computação</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
     body {
       font-family: 'Inter', sans-serif;
     }
@@ -46,7 +44,6 @@
       transform: translateY(-4px);
     }
 
-    /* Estilos para facilitar edição no Canva */
     .editable-text {
       display: block;
       margin: 0;
@@ -89,12 +86,11 @@
   <div id="home" class="page active">
     <div class="max-w-6xl mx-auto px-6 py-12">
       <div class="text-center mb-16">
-        <h1 class="editable-title text-5xl font-bold text-gray-900 mb-6">Fundamentos da Ciência da Computação</h1>
+        <h1 class="editable-title text-5xl font-bold text-gray-900 mb-6">Fundamentos da Computação</h1>
         <p class="editable-paragraph text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-          A Ciência da Computação é uma disciplina que abrange o estudo sistemático de algoritmos e estruturas de dados,
-          bem como o design e análise de sistemas computacionais e sua aplicação na resolução de problemas complexos.
-          Esta área interdisciplinar combina fundamentos matemáticos, princípios de engenharia e metodologias
-          científicas para desenvolver soluções tecnológicas inovadoras.
+          Bem-vindo(a) ao nosso projeto sobre os Fundamentos da Computação! Aqui, exploramos os pilares que sustentam o
+          mundo digital: dos algoritmos que organizam informações à engenharia por trás dos sistemas que usamos todos os
+          dias.
         </p>
       </div>
 
@@ -327,9 +323,9 @@
 
         <div class="member-card bg-white p-8 rounded-xl shadow-lg border border-gray-100 text-center">
           <img src="images/jayanne.jpg" alt="Foto de Jayanne" class="w-24 h-24 rounded-full object-cover mx-auto mb-6">
-          <h3 class="editable-title text-xl font-bold text-gray-900 mb-2">Jayanne</h3>
-          <p class="editable-text text-blue-600 font-medium mb-4">email</p>
-          <p class="editable-text text-gray-500 text-sm mb-4">Matrícula: 2021001238</p>
+          <h3 class="editable-title text-xl font-bold text-gray-900 mb-2">Jayanne Silva</h3>
+          <p class="editable-text text-blue-600 font-medium mb-4">jcristinesilva123@gmail.com</p>
+          <p class="editable-text text-gray-500 text-sm mb-4">Matrícula: 32510087</p>
           <div class="border-t border-gray-100 pt-4">
             <h4 class="editable-title font-semibold text-gray-700 mb-2">Principais Contribuições:</h4>
             <div class="text-sm text-gray-600 space-y-1">
@@ -360,10 +356,8 @@
         <div class="text-center">
           <h3 class="editable-title text-2xl font-bold text-gray-900 mb-4">Sobre o Projeto</h3>
           <p class="editable-paragraph text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Este projeto foi desenvolvido como parte da disciplina de Fundamentos da Ciência da Computação, com o
-            objetivo de criar um material educacional acessível e bem estruturado sobre os pilares fundamentais da área.
-            A equipe trabalhou de forma colaborativa, combinando pesquisa teórica, design visual e implementação técnica
-            para entregar uma experiência educacional de qualidade.
+            Este projeto foi desenvolvido como parte da disciplina de Sistemas Computacionais e Segurança, com o
+            objetivo de criar site com informações sobre os pilares fundamentais da Computação.
           </p>
         </div>
       </div>
@@ -372,14 +366,12 @@
 
   <script>
     function showPage(pageId) {
-      // Hide all pages
+
       const pages = document.querySelectorAll('.page');
       pages.forEach(page => page.classList.remove('active'));
 
-      // Show selected page
       document.getElementById(pageId).classList.add('active');
 
-      // Update navigation
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
         link.classList.remove('text-blue-700', 'bg-blue-50');
@@ -390,7 +382,6 @@
       document.getElementById(pageId + '-nav').classList.add('text-blue-700', 'bg-blue-50');
     }
 
-    // Initialize with home page active
     document.addEventListener('DOMContentLoaded', function () {
       showPage('home');
     });
